@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine, Tapheela?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: pink;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Pacifico', cursive;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            color: white;
+            font-size: 3rem;
+            margin-top: 30px;
+        }
+        .button-container {
+            margin-top: 50px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+        #yes {
+            background-color: green;
+            color: white;
+        }
+        #no {
+            background-color: red;
+            color: white;
+        }
+        #yes:hover, #no:hover {
+            transform: scale(1.1);
+        }
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            color: white;
+            animation: heartAnimation 4s infinite;
+        }
+        @keyframes heartAnimation {
+            0% { transform: scale(0); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        #photo {
+            margin-top: 50px;
+        }
+        .fade {
+            animation: fadeOut 2s forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Tapheela, will you be my Valentine?</h1>
+    
+    <!-- Heart animation -->
+    <div class="heart" style="top: 20%; left: 20%;">❤️</div>
+    <div class="heart" style="top: 40%; left: 50%;">❤️</div>
+    <div class="heart" style="top: 60%; left: 80%;">❤️</div>
+    <div class="heart" style="top: 80%; left: 30%;">❤️</div>
+
+    <!-- Button options -->
+    <div class="button-container">
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+    
+    <!-- Display Photo Section -->
+    <div id="photo">
+        <img src="your-image-url.jpg" alt="Your Image" style="max-width: 100%; border-radius: 15px;">
+    </div>
+
+    <script>
+        // Function for the "Yes" button
+        document.getElementById("yes").onclick = function() {
+            alert("Yay! ❤️ I'm so happy you said yes!");
+        };
+
+        // Function for the "No" button
+        document.getElementById("no").onclick = function() {
+            const noButton = document.getElementById("no");
+            noButton.classList.add("fade");
+            setTimeout(function() {
+                noButton.style.display = "none";  // Hide the button completely after fade
+            }, 2000); // After fade out, remove button
+        };
+
+        // Create random hearts that animate on the page
+        function generateHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.textContent = "❤️";
+            const size = Math.random() * 30 + 20;  // Random heart size
+            heart.style.fontSize = size + "px";
+            heart.style.top = Math.random() * 80 + "%";  // Random vertical position
+            heart.style.left = Math.random() * 100 + "%"; // Random horizontal position
+            document.body.appendChild(heart);
+            
+            // Remove heart after animation ends
+            setTimeout(function() {
+                heart.remove();
+            }, 4000);
+        }
+        
+        // Keep generating hearts every 1 second
+        setInterval(generateHeart, 1000);
+    </script>
+</body>
+</html>
