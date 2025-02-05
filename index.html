@@ -16,14 +16,17 @@
             text-align: center;
             position: relative;
         }
+
         h1 {
             color: white;
             font-size: 3rem;
             margin-top: 30px;
         }
+
         .button-container {
             margin-top: 50px;
         }
+
         button {
             padding: 15px 30px;
             font-size: 1.5rem;
@@ -33,34 +36,42 @@
             border-radius: 10px;
             transition: transform 0.2s;
         }
+
         #yes {
             background-color: green;
             color: white;
         }
+
         #no {
             background-color: red;
             color: white;
         }
+
         #yes:hover, #no:hover {
             transform: scale(1.1);
         }
+
         .heart {
             position: absolute;
             font-size: 30px;
             color: white;
             animation: heartAnimation 4s infinite;
         }
+
         @keyframes heartAnimation {
             0% { transform: scale(0); opacity: 1; }
             50% { transform: scale(1.5); opacity: 0.5; }
             100% { transform: scale(0); opacity: 0; }
         }
+
         #photo {
             margin-top: 50px;
         }
+
         .fade {
             animation: fadeOut 2s forwards;
         }
+
         @keyframes fadeOut {
             0% { opacity: 1; }
             100% { opacity: 0; }
